@@ -240,3 +240,10 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+# Ignore real content
+data
+diary.dvi
+diary.ps
+diary.pdf
+*.swp

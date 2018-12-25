@@ -1,0 +1,14 @@
+% marginnote
+% foreach
+\usepackage{tikz}
+% ifelse
+\usepackage{xifthen}
+% dummy text
+\usepackage{lipsum}
+
+\newcommand{\writetitle}{0}
+\newcommand{\mytitle}[1]
+{   \ifthenelse{\writetitle=1}{#1}{}
+}
+
+\newread\mysource
