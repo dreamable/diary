@@ -104,7 +104,7 @@
 \newcounter{diary}
 \renewcommand{\thediary}{\arabic{diary}}
 
-%%% CODE ENVIRONMENT. PUT TEXT INTO COLORED FRAME %%%
+% diary 
 \newenvironment{diary}[2] {
   \par\medskip\refstepcounter{diary}%
   \hbox{%
@@ -119,4 +119,5 @@
   \begin{eseframed}\noindent\ignorespaces%
 }{
   \end{eseframed}\vspace{-\baselineskip}\medskip
+  \newpage
 }
