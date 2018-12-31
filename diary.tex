@@ -1,10 +1,12 @@
 % UTF-8 encoding
 % Compile with latex+dvipdfmx, pdflatex, xelatex or lualatex
 % XeLaTeX is recommanded
-\documentclass[UTF8]{ctexart}
+%\documentclass[UTF8]{ctexart}
+\documentclass[UTF8]{ctexbook}
 \input{common}
 \input{format}
 
+\pagecolor{yellow!30}
 \title{\Huge 2019日记}
 \author{严超}
 \date{2019}
@@ -15,24 +17,24 @@
 \tableofcontents
 \newpage
 %\tableofcontents
-\foreach \Year in {19,...,19}
-{   \foreach \Month in {01,...,12} 
-    {   \foreach \Day in {01,...,31}
-        {   \IfFileExists{data/\Year/\Month/\Day}
-                {   \openin\mysource=data/\Year/\Month/\Day.tex
-                    \read\mysource to \firstline
-                    \closein\mysource
-                    \xdef\writetitle{1}
-                    \begin{diary}{\Year-\Month-\Day}{\firstline}    
-                        \xdef\writetitle{0}
-                        \input{data/\Year/\Month/\Day}
-                    \end{diary} 
-        }
-        {   % files does not exist, so nothing to do
-        }
-
-        }  
-    }
+\foreach \Year in {19,...,19} {  
+  \foreach \Month in {01,...,12} {  
+    \chapter{\Year-\Month}
+    \foreach \Day in {01,...,31} {   
+      \IfFileExists{data/\Year/\Month/\Day} {   
+        \openin\mysource=data/\Year/\Month/\Day.tex
+        \read\mysource to \firstline
+        \closein\mysource
+        \xdef\writetitle{1}
+        \begin{diary}{\Year-\Month-\Day}{\firstline}    
+          \xdef\writetitle{0}
+          \input{data/\Year/\Month/\Day}
+        \end{diary} 
+      }
+      {   % files does not exist, so nothing to do
+      }
+    }  
+  }
 }
 
 \end{document}
