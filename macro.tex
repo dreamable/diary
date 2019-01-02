@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% No number but still in TOC
+% https://tex.stackexchange.com/questions/30122/generate-table-of-contents-when-section-sections-without-numbering-has-been
+\setcounter{secnumdepth}{0} % sections are level 1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Diary
+\newenvironment{diary} {
+} {
+}
+
+% \diary_title{title}{date}
+\newcommand{\diaryTitle}[3]{%
+  \vspace{-2ex}
+  \section{#2:#1}
+  \vspace{-2ex}
+}
+
+\newcommand{\diarySection}[2]{%
+  \vspace{-2ex}
+  \subsection*{#1}
+  \vspace{-2ex}
+  #2
+}
+
+\newcommand{\diaryKeys}[1]{%
+  \vspace{-2ex}  
+  \begin{flushright}
+  \textcolor{red}{\large{\textbf{#1}}}
+  \end{flushright}
+  \vspace{-2ex}
+}
+
+% List
+\newenvironment{diaryList}{%
+  \vspace{-1ex}
+  \begin{itemize}[leftmargin=4ex, topsep=0ex, itemsep=-0.2ex]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\textbullet}
+}{%
+  \end{itemize}
+}
+
+%Table: 2 column
+\newenvironment{diaryTable}{%
+  \rowcolors{1}{white}{lightgray}
+  \begin{center}
+  \begin{longtable}{|p{0.1\textwidth}|p{0.8\textwidth}|} 
+  \hline
+}{%
+  \end{longtable}
+  \end{center}
+  \vspace{-8ex}
+}
+
+\newcommand{\diaryTableRow}[2]{%
+  \small{#1} & {#2} \\
+  \hline
+}

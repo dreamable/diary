@@ -1,0 +1,72 @@
+% for rowcolors, must be on the top, otherwise  error for unknown reason
+\usepackage[table]{xcolor}
+% foreach
+\usepackage{tikz}
+% ifelse
+\usepackage{xifthen}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{hyperref}
+% dummy text
+\usepackage{lipsum}
+
+%\usepackage{indentfirst}
+%\setlength{\parindent}{2em}
+
+\newcommand{\writetitle}{0}
+\newcommand{\mytitle}[1]
+{   \ifthenelse{\writetitle=1}{#1}{}
+}
+
+\newread\mysource
+
+
+
+% colors 
+\definecolor{white}{HTML}{FFFFFF}
+\definecolor{black}{HTML}{000000}
+\definecolor{gray}{HTML}{5D5D5D}
+\definecolor{lightgray}{HTML}{999999}
+\definecolor{darkgray}{HTML}{333333}
+\definecolor{green}{HTML}{C2E15F}
+\definecolor{orange}{HTML}{FDA333}
+\definecolor{purple}{HTML}{D3A4F9}
+\definecolor{red}{HTML}{FB4485}
+\definecolor{blue}{HTML}{6CE0F1}
+\definecolor{lightblue}{HTML}{ADD8E6}
+\definecolor{darktext}{HTML}{414141}
+
+% section title
+\newcommand*{\sectionstyle}[1]{{\noindent\bfseries\color{darktext}#1}}
+\newcommand{\mysection}[2]{%
+
+  \vspace{2mm}
+  \sectionstyle{#1}
+  \vspace{1mm}
+
+#2
+}
+
+\newenvironment{mylist}{%
+  %\vspace{-3.0mm}
+  \begin{itemize}[leftmargin=4em, topsep=0ex, itemsep=-0.2ex]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\textbullet}
+}{%
+  \end{itemize}
+  %\vspace{-3.0mm}
+}
+
+\newenvironment{mytable}{%
+  \rowcolors{1}{lightgray}{lightblue}
+  \begin{center}
+  \begin{longtable}{|p{0.1\textwidth}|p{0.8\textwidth}|} 
+  \hline
+}{%
+  \end{longtable}
+  \end{center}
+}
+\newcommand{\myrow}[2]{%
+  \small{#1} & {#2} \\
+  \hline
+}

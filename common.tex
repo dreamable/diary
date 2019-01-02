@@ -1,64 +1,95 @@
+% UTF-8 encoding
+% Compile with latex+dvipdfmx, pdflatex, xelatex or lualatex
+% XeLaTeX is recommanded
+%\documentclass[UTF8]{ctexart}
+%\documentclass[UTF8]{ctexbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% page layout
+\usepackage[top=2cm, bottom=2cm, outer=2cm, inner=2cm, heightrounded]{geometry}
+% put notes
+\usepackage{marginnote}
+
 % for rowcolors, must be on the top, otherwise  error for unknown reason
 \usepackage[table]{xcolor}
+%predefined color: black, blue, brown, cyan, darkgray, gray, green, lightgray, 
+%  lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
+\usepackage{xcolor}
+% link & ref
+\usepackage{hyperref}
+% no indent, new line after each paragraph
+\usepackage[parfill]{parskip}
+
 % foreach
 \usepackage{tikz}
 % ifelse
 \usepackage{xifthen}
+
+% include pdf
+\usepackage[final]{pdfpages}
+% include jpg
+\usepackage{graphicx}
+% enum
 \usepackage{enumitem}
+% table
 \usepackage{longtable}
-\usepackage{hyperref}
 % dummy text
 \usepackage{lipsum}
 
-%\usepackage{indentfirst}
-%\setlength{\parindent}{2em}
 
-\newcommand{\writetitle}{0}
-\newcommand{\mytitle}[1]
-{   \ifthenelse{\writetitle=1}{#1}{}
+% page background
+\pagecolor{yellow!20}
+% leave space at the bottom of page
+\raggedbottom
+% header & footer 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% change style
+% \usepackage{sectsty}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Usage: \jpg[width]{path}
+% Not floating
+\newcommand*{\jpg}[2][0.618]{
+    \begin{center}
+      \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+    \end{center}
+}
+% Floating
+\newcommand*{\jpgf}[2][0.618]{
+  \begin{figure}[ht!]
+    \begin{center}
+      \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+    \end{center}
+  \end{figure} 
+}
+% By height
+\newcommand*{\jpgh}[2][0.618]{
+    \begin{center}
+      \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
+    \end{center}
 }
 
-\newread\mysource
-
-
-
-% colors 
-\definecolor{white}{HTML}{FFFFFF}
-\definecolor{black}{HTML}{000000}
-\definecolor{gray}{HTML}{5D5D5D}
-\definecolor{lightgray}{HTML}{999999}
-\definecolor{darkgray}{HTML}{333333}
-\definecolor{green}{HTML}{C2E15F}
-\definecolor{orange}{HTML}{FDA333}
-\definecolor{purple}{HTML}{D3A4F9}
-\definecolor{red}{HTML}{FB4485}
-\definecolor{blue}{HTML}{6CE0F1}
-\definecolor{lightblue}{HTML}{ADD8E6}
-\definecolor{darktext}{HTML}{414141}
-
-% section title
-\newcommand*{\sectionstyle}[1]{{\noindent\bfseries\color{darktext}#1}}
-\newcommand{\mysection}[2]{%
-
-  \vspace{2mm}
-  \sectionstyle{#1}
-  \vspace{1mm}
-
-#2
+% Includ PDF file
+\newcommand*{\pdf}[1]{
+  \includepdf[pages=-]{contents/pdfs/#1.pdf}
 }
 
+% List
 \newenvironment{mylist}{%
-  %\vspace{-3.0mm}
-  \begin{itemize}[leftmargin=4em, topsep=0ex, itemsep=-0.2ex]
+  \vspace{-1ex}
+  \begin{itemize}[leftmargin=4ex, topsep=0ex, itemsep=-0.2ex]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\textbullet}
 }{%
   \end{itemize}
-  %\vspace{-3.0mm}
 }
 
+%Table: 2 column
 \newenvironment{mytable}{%
-  \rowcolors{1}{lightgray}{lightblue}
+  \rowcolors{1}{lightgray}{darkgray}
   \begin{center}
   \begin{longtable}{|p{0.1\textwidth}|p{0.8\textwidth}|} 
   \hline
@@ -70,3 +101,9 @@
   \small{#1} & {#2} \\
   \hline
 }
+
+% Hightlight 
+\newcommand{\hl}[1]{%
+  {\textbf{\color{red}#1}}%
+}
+

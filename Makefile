@@ -1,6 +1,8 @@
-all: default 
+all: diary
 
-default:*.tex
+diary:diary.tex
 	xelatex diary.tex 
+2018: 2018.tex
+	xelatex 2018.tex 
 clean:
-	rm *.log *.out *.aux 
+	rm -rf *.log *.out *.aux  *.toc
