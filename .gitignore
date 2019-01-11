@@ -244,5 +244,4 @@ TSWLatexianTemp*
 # Ignore real content
 *.dvi
 *.ps
-*.pdf
 *.swp
