@@ -242,8 +242,6 @@ TSWLatexianTemp*
 *.spl
 
 # Ignore real content
-contents
-results
 *.dvi
 *.ps
 *.pdf

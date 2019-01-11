@@ -3,14 +3,14 @@
 % XeLaTeX is recommanded
 \documentclass[UTF8]{ctexbook}
 \input{common}
-\input{macro}
+%\input{macro_diary}
 
 % Align section on the left
 \makeatletter
 \g@addto@macro{\CTEX@section@format}{\raggedright}
 \makeatother
 
-\title{\Huge 2019日记}
+\title{\Huge 书籍模版}
 \author{严超}
 \date{2019}
 
@@ -20,6 +20,7 @@
 \tableofcontents
 \newpage
 
+% 自动搜索子目录
 \foreach \Year in {19,...,19} {  
   \foreach \Month in {1,...,12} {
     % I don't know how to check if a directory exists, so check the first file. 

@@ -1,20 +1,21 @@
-all: diary backup
+all: book report
 
-diary:diary.tex
-	xelatex diary.tex 
-	xelatex diary.tex 
-	mv diary.pdf results 
+book:book.tex
+	xelatex book.tex 
+	xelatex book.tex 
+	mv book.pdf results 
 	rm -rf *.log *.out *.aux  *.toc
+	#open results/book.pdf
 
-2018: 2018.tex
-	xelatex 2018.tex 
-	xelatex 2018.tex 
-	mv 2018.pdf results 
+report: report.tex
+	xelatex report.tex 
+	xelatex report.tex 
+	mv report.pdf results 
 	rm -rf *.log *.out *.aux  *.toc
 
 backup: 
-	zip -P 2019diary diary *
-	mv diary.zip ~/work/diary/
+	zip -P <your_password> book *
+	mv book.zip <backup_path> 
 
 clean:
 	rm -rf *.log *.out *.aux  *.toc

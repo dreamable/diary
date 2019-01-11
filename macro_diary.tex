@@ -12,7 +12,7 @@
 % \diary_title{title}{date}
 \newcommand{\diaryTitle}[3]{%
   \vspace{-2ex}
-  \section{#2: #1}
+  \section[#2: #1]{#2: #1\hfill\normalfont{#3}}
   \vspace{-2ex}
 }
 
@@ -24,10 +24,11 @@
 }
 
 \newcommand{\diaryKeys}[1]{%
-  \vspace{-2ex}  
+  \vspace{-1ex}  
   \begin{flushright}
   \textcolor{red}{\large{\textbf{#1}}}
   \end{flushright}
+  \vspace{-1ex}
   \vspace{-2ex}
 }
 
