@@ -6,7 +6,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page layout
-\usepackage[top=2cm, bottom=2cm, outer=2cm, inner=2cm, heightrounded]{geometry}
+%\usepackage[top=2cm, bottom=2cm, outer=2cm, inner=2cm, heightrounded]{geometry}
+\usepackage[top=2cm, bottom=2cm, outer=1.5cm, inner=1.5cm, heightrounded]{geometry}
 % put notes
 \usepackage{marginnote}
 
@@ -37,6 +38,8 @@
 \usepackage{lipsum}
 % % treate _ as \textunderscore. But I can't use file name like a_b
 % \usepackage{underscore}
+% For define mycode
+\usepackage{verbatim}
 
 
 % page background
@@ -46,6 +49,11 @@
 % header & footer 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+% At least 12.xx pt
+\setlength{\headheight}{24pt}
+\setlength{\headsep}{4ex} 
+\setlength{\footskip}{4ex} 
+\setlength{\parskip}{1ex plus0.2ex minus0.2ex}
 % change style
 % \usepackage{sectsty}
 
@@ -59,6 +67,12 @@
       \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
     \end{center}
 }
+% By height
+\newcommand*{\jpgh}[2][0.618]{
+    \begin{center}
+      \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
+    \end{center}
+}
 % Floating
 \newcommand*{\jpgf}[2][0.618]{
   \begin{figure}[ht!]
@@ -67,11 +81,23 @@
     \end{center}
   \end{figure} 
 }
-% By height
-\newcommand*{\jpgh}[2][0.618]{
+% jpg with caption by width
+\newcommand*{\cjpg}[3][0.9]{
+  \begin{figure}[ht!]
+    \begin{center}
+      \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+      \caption{#3}
+    \end{center}
+  \end{figure}
+}
+% jpg with caption by height
+\newcommand*{\cjpgh}[3][0.4]{
+  \begin{figure}[ht!]
     \begin{center}
       \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
+      \caption{#3}
     \end{center}
+  \end{figure}
 }
 
 % Includ PDF file
@@ -117,12 +143,8 @@
 }
 
 
-%sTable: 2 column
-% \newenvironment{mycode}{%
-% \begin{small}
-%   \begin{verbatim} 
-% }{%
-%   \end{verbatim} 
-% \end{small}
-% }
-
+% Coding env, see
+% https://tex.stackexchange.com/questions/114643/defining-a-new-environment-extending-a-verbatim-environment
+\newenvironment{mycode}%
+  {\endgraf\small\verbatim}%
+  {\endverbatim}
