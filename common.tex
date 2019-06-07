@@ -40,7 +40,11 @@
 % \usepackage{underscore}
 % For define mycode
 \usepackage{verbatim}
+% figure position
+\usepackage{float}
 
+% math
+\usepackage{mathtools}
 
 % page background
 %\pagecolor{yellow!20}
@@ -81,20 +85,43 @@
     \end{center}
   \end{figure} 
 }
-% jpg with caption by width
+% jpg with caption by width, non-floating
 \newcommand*{\cjpg}[3][0.9]{
-  \begin{figure}[ht!]
+  \begin{figure}[H]%[ht!]
     \begin{center}
       \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+      \vspace{-0.5ex}
       \caption{#3}
     \end{center}
   \end{figure}
 }
-% jpg with caption by height
+% jpg with caption by height, non-floating
 \newcommand*{\cjpgh}[3][0.4]{
-  \begin{figure}[ht!]
+  \begin{figure}[H]%[ht!]
     \begin{center}
       \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
+      \vspace{-0.5ex}
+      \caption{#3}
+    \end{center}
+  \end{figure}
+}
+
+% jpg with caption by width, floating
+\newcommand*{\cjpgf}[3][0.9]{
+  \begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+      \vspace{-0.5ex}
+      \caption{#3}
+    \end{center}
+  \end{figure}
+}
+% jpg with caption by height, floating
+\newcommand*{\cjpghf}[3][0.4]{
+  \begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
+      \vspace{-0.5ex}
       \caption{#3}
     \end{center}
   \end{figure}
@@ -130,6 +157,9 @@
   \hline
 }
 
+\newcommand{\emphcn}[1]{%
+  {\textbf{#1}}%
+}
 % Hightlight 
 \newcommand{\hl}[1]{%
   {\textbf{\color{red}#1}}%
