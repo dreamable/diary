@@ -42,7 +42,8 @@
 \usepackage{verbatim}
 % figure position
 \usepackage{float}
-
+% resize (for underscore)
+\usepackage{relsize}
 % math
 \usepackage{mathtools}
 
@@ -117,7 +118,7 @@
   \end{figure}
 }
 % jpg with caption by height, floating
-\newcommand*{\cjpghf}[3][0.4]{
+\newcommand*{\cjpgfh}[3][0.4]{
   \begin{figure}[htbp!]
     \begin{center}
       \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
@@ -132,6 +133,7 @@
   \includepdf[pages=-]{contents/pdfs/#1.pdf}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % List
 \newenvironment{mylist}{%
   \vspace{-1ex}
@@ -157,6 +159,7 @@
   \hline
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\emphcn}[1]{%
   {\textbf{#1}}%
 }
@@ -172,7 +175,10 @@
   \end{flushright}
 }
 
+\renewcommand{\_}{\textscale{.5}{\textunderscore\relax{}}}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Coding env, see
 % https://tex.stackexchange.com/questions/114643/defining-a-new-environment-extending-a-verbatim-environment
 \newenvironment{mycode}%
