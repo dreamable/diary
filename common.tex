@@ -69,20 +69,20 @@
 % Not floating
 \newcommand*{\jpg}[2][0.618]{
     \begin{center}
-      \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+      \includegraphics[width={#1}\textwidth]{images/{#2}.jpg}
     \end{center}
 }
 % By height
 \newcommand*{\jpgh}[2][0.618]{
     \begin{center}
-      \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
+      \includegraphics[height={#1}\textheight]{images/{#2}.jpg}
     \end{center}
 }
 % Floating
 \newcommand*{\jpgf}[2][0.618]{
   \begin{figure}[ht!]
     \begin{center}
-      \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+      \includegraphics[width={#1}\textwidth]{images/{#2}.jpg}
     \end{center}
   \end{figure} 
 }
@@ -90,7 +90,7 @@
 \newcommand*{\cjpg}[3][0.9]{
   \begin{figure}[H]%[ht!]
     \begin{center}
-      \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+      \includegraphics[width={#1}\textwidth]{images/{#2}.jpg}
       \vspace{-0.5ex}
       \caption{#3}
     \end{center}
@@ -100,7 +100,7 @@
 \newcommand*{\cjpgh}[3][0.4]{
   \begin{figure}[H]%[ht!]
     \begin{center}
-      \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
+      \includegraphics[height={#1}\textheight]{images/{#2}.jpg}
       \vspace{-0.5ex}
       \caption{#3}
     \end{center}
@@ -111,7 +111,7 @@
 \newcommand*{\cjpgf}[3][0.9]{
   \begin{figure}[htbp!]
     \begin{center}
-      \includegraphics[width={#1}\textwidth]{contents/images/{#2}.jpg}
+      \includegraphics[width={#1}\textwidth]{images/{#2}.jpg}
       \vspace{-0.5ex}
       \caption{#3}
     \end{center}
@@ -121,7 +121,7 @@
 \newcommand*{\cjpgfh}[3][0.4]{
   \begin{figure}[htbp!]
     \begin{center}
-      \includegraphics[height={#1}\textheight]{contents/images/{#2}.jpg}
+      \includegraphics[height={#1}\textheight]{images/{#2}.jpg}
       \vspace{-0.5ex}
       \caption{#3}
     \end{center}
@@ -130,7 +130,7 @@
 
 % Includ PDF file
 \newcommand*{\pdf}[1]{
-  \includepdf[pages=-]{contents/pdfs/#1.pdf}
+  \includepdf[pages=-]{#1}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
